@@ -4,6 +4,7 @@ import 'package:practice4/pages/home_pages.dart';
 import 'package:practice4/pages/login_page.dart';
 
 import 'package:practice4/utils/routes.dart';
+import 'package:practice4/widgets/themes.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,14 +17,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // home: HomePage(),
       themeMode: ThemeMode.light,
-      theme: ThemeData(
-        primaryColor: Colors.deepPurple,
-        fontFamily: GoogleFonts.lato().fontFamily,
-      ),
-      darkTheme: ThemeData(
-        primaryColor: Colors.amberAccent,
-        // brightness: Brightness.dark,
-      ),
+      theme: MyTheme.lightTheme(context),
+      darkTheme: MyTheme.darkTheme(context),
       initialRoute: MyRoutes.homeRoute,
       routes: {
         "/": (context) => LoginPage(),
