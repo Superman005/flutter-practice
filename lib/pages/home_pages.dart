@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
           title: Center(
         child: Text(
-          "The app",
+          "Catalog App",
         ),
       )),
       body: Center(
