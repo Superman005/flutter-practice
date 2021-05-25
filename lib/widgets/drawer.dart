@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final imageUrl =
-        "https://i.pinimg.com/originals/08/ed/1e/08ed1e299052cd81b1af6c8d6d7e1c51.jpg";
+    // final imageUrl =
+    //     "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F719168634245851274%2F&psig=AOvVaw0wNGDcENspF8yhffV57hfV&ust=1621838139061000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNiJqoOY3_ACFQAAAAAdAAAAABAI";
     return Drawer(
         child: Container(
       color: Colors.deepPurple,
@@ -19,9 +19,8 @@ class MyDrawer extends StatelessWidget {
               accountName: Text('Rohil'),
               accountEmail: Text('rohil@gmail.com'),
               currentAccountPicture: CircleAvatar(
-                backgroundImage: NetworkImage(
-                  imageUrl,
-                ),
+                radius: 30,
+                backgroundImage: AssetImage("assets/images/2.jpg"),
               ),
             ),
           ),
