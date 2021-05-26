@@ -3,7 +3,7 @@ class CatalogModel {
     Item(
         id: 1,
         name: "Andriod Phones",
-        desc: "Latest generation technology",
+        desc: "Latest generation technologys",
         price: 999,
         color: "red",
         image: "assets/images/phone.png")
