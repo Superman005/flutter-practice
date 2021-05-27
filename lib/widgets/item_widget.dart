@@ -10,20 +10,23 @@ class ItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: StadiumBorder(),
-      child: ListTile(
-        onTap: () {
-          print("${item.name} pressed");
-        },
-        leading: Image.asset(item.image),
-        title: Text(item.name),
-        subtitle: Text(item.desc),
-        trailing: Text(
-          "\$${item.price}",
-          style: TextStyle(
-            color: Colors.deepPurple,
-            fontWeight: FontWeight.bold,
+    return Padding(
+      padding: EdgeInsets.all(20),
+      child: Card(
+        shape: StadiumBorder(),
+        child: ListTile(
+          onTap: () {
+            print("${item.name} pressed");
+          },
+          leading: Image.asset(item.image),
+          title: Text(item.name),
+          subtitle: Text(item.desc),
+          trailing: Text(
+            "\$${item.price}",
+            style: TextStyle(
+              color: Colors.deepPurple,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),
