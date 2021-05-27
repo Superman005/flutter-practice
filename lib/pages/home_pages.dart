@@ -23,6 +23,7 @@ class _HomePageState extends State<HomePage> {
 
   //loaddata ko definition deko
   loadData() async {
+    await Future.delayed(Duration(seconds: 2));
     //await kinaki rootbundle le future return garxa jasma time lagna sakxa file load huna
     final catalogJson =
         await rootBundle.loadString("assets/files/catalog.json");
@@ -34,7 +35,7 @@ class _HomePageState extends State<HomePage> {
     //ya List<Item> ko satta CatalogModel.product use gardeko sajilo ko laii
     CatalogModel.products =
         List.from(productData).map<Item>((item) => Item.fromMap(item)).toList();
-    setState(() {});
+    setState(() {}); //setState le build method feri call garxa
   }
 
   @override
@@ -49,14 +50,19 @@ class _HomePageState extends State<HomePage> {
       )),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(10, 10, 30, 40),
-        child: ListView.builder(
-          itemCount: CatalogModel.products.length,
-          itemBuilder: (context, index) {
-            return ItemWidget(
-              item: CatalogModel.products[index],
-            );
-          },
-        ),
+        child:
+            (CatalogModel.products != null && CatalogModel.products.isNotEmpty)
+                ? ListView.builder(
+                    itemCount: CatalogModel.products.length,
+                    itemBuilder: (context, index) => ItemWidget(
+                      item: CatalogModel.products[index],
+                    ),
+                  )
+                : Center(
+                    child: CircularProgressIndicator(
+                      color: Colors.deepPurple,
+                    ),
+                  ),
       ),
       drawer: MyDrawer(),
     );
