@@ -14,7 +14,9 @@ class HomeDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     //catalog ley dekhako image deukhauna laii thulo ma
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
       backgroundColor: MyTheme.creamColor,
       bottomNavigationBar: Container(
         color: Colors.white,
@@ -40,12 +42,12 @@ class HomeDetailPage extends StatelessWidget {
                     ),
                     shape: MaterialStateProperty.all(StadiumBorder())),
                 child: Text(
-                  "Buy",
+                  "Add To Cart",
                   style: TextStyle(
                     fontSize: 12,
                   ),
                 ),
-              ).wh(100, 50)
+              ).wh(120, 50)
             ],
           ).py24(),
         ),
@@ -85,6 +87,11 @@ class HomeDetailPage extends StatelessWidget {
                         fontSize: 18,
                       ),
                     ),
+                    "  dolore. Elit id fugiat mollit anim mollit irure eiusmod. Laborum non Lorem ipsum eiusmod sit mollit exercitation enim ex sunt commodo. Non non aliqua fugiat esse ad id. Do nisi quis nulla fugiat ut amet eu elit sit quis. Eiusmod non velit do officia."
+                        .text
+                        .textStyle(context.captionStyle)
+                        .make()
+                        .p16()
                   ],
                 ).py64(),
               ),

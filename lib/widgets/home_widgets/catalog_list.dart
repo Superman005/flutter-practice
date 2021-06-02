@@ -17,14 +17,15 @@ class CatalogList extends StatelessWidget {
         itemBuilder: (context, index) {
           final catalog = CatalogModel.products[index];
           return InkWell(
-              //Day 18 video ko time:10:35
-              onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => HomeDetailPage(catalog: catalog),
-                    ),
-                  ),
-              child: CatalogItem(catalog: catalog));
+            //Day 18 video ko time:10:35
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => HomeDetailPage(catalog: catalog),
+              ),
+            ),
+            child: CatalogItem(catalog: catalog),
+          );
         },
       ),
     );
@@ -101,7 +102,7 @@ class CatalogItem extends StatelessWidget {
                           ),
                           shape: MaterialStateProperty.all(StadiumBorder())),
                       child: Text(
-                        "Buy",
+                        "Reserve",
                         style: TextStyle(
                           fontSize: 12,
                         ),
