@@ -15,13 +15,21 @@ class CatalogList extends StatelessWidget {
       child: ListView.builder(
         itemCount: CatalogModel.products.length,
         itemBuilder: (context, index) {
-          final catalog = CatalogModel.products[index];
+          // final catalog = CatalogModel.products[index];
+          //or yesko satta
+          final catalog = CatalogModel.getByPosition(index);
           return InkWell(
             //Day 18 video ko time:10:35
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => HomeDetailPage(catalog: catalog),
+                builder: (context) => HomeDetailPage(
+                  //ya mathi bata position ko basi ma aayo catalog bata
+                  catalog: catalog,
+
+                  //mathi yesko satta maile pixel 5 aauxa onTap
+                  // catalog: CatalogModel.getById(2),
+                ),
               ),
             ),
             child: CatalogItem(catalog: catalog),
@@ -115,6 +123,6 @@ class CatalogItem extends StatelessWidget {
           ),
         )
       ]),
-    ).white.square(120).make().py16();
+    ).color(context.cardColor).rounded.square(120).make().py16();
   }
 }
