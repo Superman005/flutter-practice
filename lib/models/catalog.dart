@@ -1,6 +1,15 @@
 import 'dart:convert';
 
 class CatalogModel {
+  static final catModel = CatalogModel._internal();
+
+  //ani mathiko lagi constructor banako
+  CatalogModel._internal();
+
+  //factory ko through define garya ki jaba jaba CartModel() magxa
+  //teti bela yo cartModel return garxa
+  factory CatalogModel() => catModel;
+
   static List<Item> products;
 
   //Get item by Id(Cart ko lagi)(Item ko Id ko basis)

@@ -1,6 +1,17 @@
 import 'package:practice4/models/catalog.dart';
 
 class CartModel {
+  //yesko aauta object create hos vanera aauta SINGLETON banako
+  //internal ma j lekhdani vayo
+  static final cartModel = CartModel._internal();
+
+  //ani mathiko lagi constructor banako
+  CartModel._internal();
+
+  //factory ko through define garya ki jaba jaba CartModel() magxa
+  //teti bela yo cartModel return garxa
+  factory CartModel() => cartModel;
+
   //_ use garda private hunxa
   //catalog field
   CatalogModel _catalog;

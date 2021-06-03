@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practice4/models/cart.dart';
 import 'package:practice4/models/catalog.dart';
 import 'package:practice4/pages/home_detail_page.dart';
 import 'package:practice4/widgets/themes.dart';
@@ -103,20 +104,7 @@ class CatalogItem extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                            MyTheme.darkBluishColor,
-                          ),
-                          shape: MaterialStateProperty.all(StadiumBorder())),
-                      child: Text(
-                        "Reserve",
-                        style: TextStyle(
-                          fontSize: 12,
-                        ),
-                      ),
-                    )
+                    _AddToCart(catalog: catalog)
                   ],
                 ),
               )
@@ -125,5 +113,47 @@ class CatalogItem extends StatelessWidget {
         )
       ]),
     ).color(context.cardColor).rounded.square(120).make().py16();
+  }
+}
+
+class _AddToCart extends StatefulWidget {
+  final Item catalog; //mathibata layko catalog
+  const _AddToCart({
+    Key key,
+    this.catalog,
+  }) : super(key: key);
+
+  @override
+  __AddToCartState createState() => __AddToCartState();
+}
+
+class __AddToCartState extends State<_AddToCart> {
+  bool isAdded = false;
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        isAdded = isAdded.toggle();
+        final _catalog = CatalogModel();
+        final _cart = CartModel();
+        _cart.catalog = _catalog;
+        _cart.add(widget.catalog); // cart ko add vanne ma catalog halya
+        //catalog model ma ta dheraii item xa kun add garne explain in day 24 6:00
+        setState(() {});
+      },
+      style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(
+            MyTheme.darkBluishColor,
+          ),
+          shape: MaterialStateProperty.all(StadiumBorder())),
+      child: isAdded
+          ? Icon(Icons.done)
+          : Text(
+              "Add",
+              style: TextStyle(
+                fontSize: 12,
+              ),
+            ),
+    );
   }
 }
