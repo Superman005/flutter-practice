@@ -5,11 +5,12 @@ class CatalogModel {
 
   //Get item by Id(Cart ko lagi)(Item ko Id ko basis)
   //int id method laii pass garda yesle tyo id diyos jasko id match vayo yesma
-  static Item getById(int id) =>
+  //Item ko aagadi static hatako
+  Item getById(int id) =>
       products.firstWhere((element) => element.id == id, orElse: null);
 
   //Get Item by positon
-  static Item getByPosition(int pos) => products[pos];
+  Item getByPosition(int pos) => products[pos];
 }
 
 class Item {

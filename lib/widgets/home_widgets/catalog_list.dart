@@ -15,9 +15,10 @@ class CatalogList extends StatelessWidget {
       child: ListView.builder(
         itemCount: CatalogModel.products.length,
         itemBuilder: (context, index) {
-          // final catalog = CatalogModel.products[index];
+          final catalog = CatalogModel.products[index];
           //or yesko satta
-          final catalog = CatalogModel.getByPosition(index);
+          // final catalog = CatalogModel.getByPosition(index);
+          //yo mathi ko ma hamile uta static hatako ho item ko aagadi ani yo chaldaiina
           return InkWell(
             //Day 18 video ko time:10:35
             onTap: () => Navigator.push(
